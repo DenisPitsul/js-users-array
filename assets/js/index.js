@@ -55,13 +55,8 @@ foundUser.email = 'newuseremail@gmail.com';
 console.log('User with updated email', foundUser);
 
 // *Визначити, який відсоток користувачів підписані (subscribed).
-const subscribedUsersCount = users.reduce((acc, user) => {
-    if(user.isSubscribed) {
-        acc++;
-    }
-    return acc;
-}, 0);
-const subscribedUsersPercentage = ((subscribedUsersCount / users.length) * 100).toFixed();
+const subscriberUsers = users.filter(u => u.isSubscribed)
+const subscribedUsersPercentage = ((subscriberUsers.length / users.length) * 100).toFixed();
 console.log('Subscribed users percentage:', subscribedUsersPercentage);
 
 // *Знайти середній вік користувачів (спробувати використати reduce).
